@@ -5,7 +5,6 @@ import exceptions.IllegalCommandException;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-//s
 
 public enum AdminCommand {
 
