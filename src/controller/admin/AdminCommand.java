@@ -11,6 +11,7 @@ public enum AdminCommand {
     ADD_STUDENT("add student ([a-zA-Z0-9_ ]+) ([a-zA-Z0-9_ ]+) (\\w+) (\\d+) (yes|no)"),
     ADD_DISTRIBUTOR("add distributor ([a-zA-Z0-9_ ]+) ([a-zA-Z0-9_ ]+) (\\w+) ([a-zA-Z0-9_ ]+)"),
     ADD_ADMIN("add admin ([a-zA-Z0-9_ ]+) ([a-zA-Z0-9_ ]+) (\\w+)"),
+    ADD_FOOD("add food (\\w+) (\\d+) (dinner|breakfast|lunch)"),
     SHOW_DEMANDS("show demands (\\d+)");
 
     private final Pattern pattern;

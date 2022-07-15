@@ -33,6 +33,7 @@ public class AdminController extends UserController {
                     case ADD_DISTRIBUTOR -> addDistributor(matcher.group(1), matcher.group(2), matcher.group(3), matcher.group(4));
                     case ADD_STUDENT -> addStudent(matcher.group(1), matcher.group(2), matcher.group(3), Integer.parseInt(matcher.group(4)), matcher.group(5));
                     case SHOW_DEMANDS -> showDemands();
+                    case ADD_FOOD -> addFood(matcher.group(1), Integer.parseInt(matcher.group(2)), matcher.group(3));
                 }
 
         } catch (
@@ -49,6 +50,9 @@ public class AdminController extends UserController {
         }
         return controller;
 
+    }
+
+    private void addFood(String name, int price, String type) {
     }
 
     private void addAdmin(String username, String password, String name) {

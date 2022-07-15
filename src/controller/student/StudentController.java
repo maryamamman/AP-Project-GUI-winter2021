@@ -29,6 +29,8 @@ public class StudentController extends UserController {
                     case RESERVE -> reserve(Integer.parseInt(matcher.group(1)), matcher.group(2), matcher.group(3));
                     case SHOW_FOOD_MENU -> showFoodMenu();
                     case CREDIT_ENHANCEMENT -> creditEnhancement(Integer.parseInt(matcher.group(1)));
+                    case TRANSFER -> transfer(Integer.parseInt(matcher.group(1)));
+                    case RETAKE -> retake(Integer.parseInt(matcher.group(1)),matcher.group(2));
                 }
 
             return null;
@@ -47,6 +49,12 @@ public class StudentController extends UserController {
         return controller;
     }
 
+    private void retake(int day, String type) {
+    }
+
+    private void transfer(int id) {
+    }
+
     private void creditEnhancement(int amount) {
         student.deposit(amount);
     }
@@ -58,8 +66,6 @@ public class StudentController extends UserController {
 
 
     private void reserve(int day, String type, String foodName) {
-            System.out.println(day);
-            System.out.println(type);
-            System.out.println(foodName);
+
     }
 }

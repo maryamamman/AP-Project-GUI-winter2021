@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 public enum StudentCommand {
 
     SHOW_FOOD_MENU("show food menu"),
-    RETAKE("retake (\\w+)"),
-    TRANSFER("transfer (\\w+)"),
+    RETAKE("retake (\\d+) (dinner|breakfast|lunch)"),
+    TRANSFER("transfer (\\d+)"),
     CREDIT_ENHANCEMENT("credit enhancement (\\d+)"),
     RESERVE("reserve (\\d+) (dinner|breakfast|lunch) (\\w+)");
 

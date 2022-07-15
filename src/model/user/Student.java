@@ -7,7 +7,7 @@ public class Student extends User{
     public boolean inDorm;
     public static ArrayList<Reserve> reserveList;
     public int id;
-    public static int wallet;
+    public int wallet;
     static {
         students = new ArrayList<>();
     }
@@ -33,6 +33,7 @@ class Reserve {
         this.type = type;
         this.foodNum = foodNum;
         eaten = false;
+        Student.reserveList.add(this);
     }
     public void setToEaten() {
         eaten = true;
