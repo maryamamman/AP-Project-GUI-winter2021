@@ -28,6 +28,7 @@ public class StudentController extends UserController {
                 switch (studentCommand) {
                     case RESERVE -> reserve(Integer.parseInt(matcher.group(1)), matcher.group(2), matcher.group(3));
                     case SHOW_FOOD_MENU -> showFoodMenu();
+                    case CREDIT_ENHANCEMENT -> creditEnhancement(Integer.parseInt(matcher.group(1)));
                 }
 
             return null;
@@ -44,6 +45,10 @@ public class StudentController extends UserController {
             e.printStackTrace();
         }
         return controller;
+    }
+
+    private void creditEnhancement(int amount) {
+        student.deposit(amount);
     }
 
 

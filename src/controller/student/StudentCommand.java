@@ -11,6 +11,7 @@ public enum StudentCommand {
     SHOW_FOOD_MENU("show food menu"),
     RETAKE("retake (\\w+)"),
     TRANSFER("transfer (\\w+)"),
+    CREDIT_ENHANCEMENT("credit enhancement (\\d+)"),
     RESERVE("reserve (\\d+) (dinner|breakfast|lunch) (\\w+)");
 
     private final Pattern pattern;

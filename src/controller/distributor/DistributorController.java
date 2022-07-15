@@ -25,8 +25,8 @@ public class DistributorController extends UserController {
                 Matcher matcher = DistributorCommand.getMatcher(input, distributorCommand);
                 if (matcher.find())
                     switch (distributorCommand) {
-                        case CHECK_DEMAND -> checkDemand();
-                        case HAND_OVER -> handOver();
+                        case CHECK_DEMAND -> checkDemand(Integer.parseInt(matcher.group(1)));
+                        case HAND_OVER -> handOver(Integer.parseInt(matcher.group(1)));
                     }
 
                 return null;
@@ -46,9 +46,10 @@ public class DistributorController extends UserController {
             
     }
 
-    private void handOver() {
+    private void handOver(int id) {
+
     }
 
-    private void checkDemand() {
+    private void checkDemand(int id) {
     }
 }

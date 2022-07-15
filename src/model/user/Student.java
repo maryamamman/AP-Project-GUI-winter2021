@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Student extends User{
     public static ArrayList<Student> students;
     public boolean inDorm;
-    public ArrayList<Reserve> reserveList;
+    public static ArrayList<Reserve> reserveList;
     public int id;
     public static int wallet;
     static {
