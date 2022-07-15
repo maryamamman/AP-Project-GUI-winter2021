@@ -24,7 +24,7 @@ public class FoodHandler {
             case "dinner": dinnerPrice.put(name, price);
         }
     }
-    public static void setFood(int day) {
+    public static void setFood(int day, String name) {
         ArrayList<String> breakfastNames = new ArrayList<>(breakfastPrice.keySet());
         ArrayList<String> lunchNames = new ArrayList<>(lunchPrice.keySet());
         ArrayList<String> dinnerNames = new ArrayList<>(dinnerPrice.keySet());

@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum DistributorCommand {
-    HAND_OVER("hand over (\\d+)"),
     CHECK_DEMAND("check demand (\\d+)");
 
     private final Pattern pattern;
@@ -24,7 +23,7 @@ public enum DistributorCommand {
 
     public static DistributorCommand findCommand(String input) {
         for (DistributorCommand command : DistributorCommand.values()) {
-            if(Pattern.matches(command.regex, input))
+            if (Pattern.matches(command.regex, input))
                 return command;
         }
         throw new IllegalCommandException();
