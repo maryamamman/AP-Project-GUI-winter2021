@@ -9,6 +9,7 @@ public class FoodHandler {
     public static HashMap<Integer, String[]> breakfastTable;
     public static HashMap<Integer, String[]> lunchTable;
     public static HashMap<Integer, String[]> dinnerTable;
+
     static {
         breakfastPrice = new HashMap<>();
         lunchPrice = new HashMap<>();
@@ -17,26 +18,21 @@ public class FoodHandler {
         lunchTable = new HashMap<>();
         dinnerTable = new HashMap<>();
     }
+
     public static void addFood(String name, int price, String type) {
-        switch (type){
-            case "breakfast": breakfastPrice.put(name, price);
-            case "lunch": lunchPrice.put(name, price);
-            case "dinner": dinnerPrice.put(name, price);
+        switch (type) {
+            case "breakfast" -> breakfastPrice.put(name, price);
+            case "lunch" -> lunchPrice.put(name, price);
+            case "dinner" -> dinnerPrice.put(name, price);
         }
     }
-    public static void setFood(int day, String name, String type) {
-        ArrayList<String> breakfastNames = new ArrayList<>(breakfastPrice.keySet());
-        ArrayList<String> lunchNames = new ArrayList<>(lunchPrice.keySet());
-        ArrayList<String> dinnerNames = new ArrayList<>(dinnerPrice.keySet());
-        Random foodChooser = new Random();
-        String breakfast1 = breakfastNames.get(foodChooser.nextInt(breakfastNames.size()));
-        String breakfast2 = breakfastNames.get(foodChooser.nextInt(breakfastNames.size()));
-        breakfastTable.put(day, new String[]{breakfast1, breakfast2});
-        String lunch1 = lunchNames.get(foodChooser.nextInt(lunchNames.size()));
-        String lunch2 = lunchNames.get(foodChooser.nextInt(lunchNames.size()));
-        lunchTable.put(day, new String[]{lunch1, lunch2});
-        String dinner1 = dinnerNames.get(foodChooser.nextInt(dinnerNames.size()));
-        String dinner2 = dinnerNames.get(foodChooser.nextInt(dinnerNames.size()));
-        dinnerTable.put(day, new String[]{dinner1, dinner2});
+
+    public static void setFood(String foodName1, String foodName2, int day, String type) {
+        switch (type) {
+            case "breakfast" -> breakfastTable.put(day, new String[]{foodName1, foodName2});
+            case "lunch" -> lunchTable.put(day, new String[]{foodName1, foodName2});
+            case "dinner" -> dinnerTable.put(day, new String[]{foodName1, foodName2});
+        }
+
     }
 }

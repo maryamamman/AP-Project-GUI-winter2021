@@ -35,7 +35,7 @@ public class AdminController extends UserController {
                     case NEW_STUDENT -> newStudent(matcher.group(1), matcher.group(2), matcher.group(3), Integer.parseInt(matcher.group(4)), matcher.group(5));
                     case REPORT -> report();
                     case NEW_FOOD -> newFood(matcher.group(1), Integer.parseInt(matcher.group(2)), matcher.group(3));
-                    case SET_FOOD -> setFood(Integer.parseInt(matcher.group(1)), matcher.group(2), matcher.group(3));
+                    case SET_FOOD -> setFood(matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(2)), matcher.group(3));
                     case NEXT_MEAL -> nextMeal();
                 }
 
@@ -58,8 +58,8 @@ public class AdminController extends UserController {
     private void nextMeal() {
     }
 
-    private void setFood(int day, String name, String type) {
-        FoodHandler.setFood(day, name, type);
+    private void setFood(String foodName1, String foodName2, int day, String type) {
+        FoodHandler.setFood(foodName1, foodName2, day, type);
     }
 
     private void newFood(String name, int price, String type) {

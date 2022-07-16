@@ -1,5 +1,6 @@
 package model.user;
 
+
 import java.util.ArrayList;
 
 public class Student extends User{
@@ -21,21 +22,26 @@ public class Student extends User{
     public void deposit(int amount) {
         wallet += amount;
     }
-}
-class Reserve {
-    int day;
-    String type;
-    int foodNum;
-    boolean eaten;
 
-    public Reserve(int day, String type, int foodNum) {
-        this.day = day;
-        this.type = type;
-        this.foodNum = foodNum;
-        eaten = false;
-        Student.reserveList.add(this);
-    }
-    public void setToEaten() {
-        eaten = true;
+    class Reserve {
+
+        int day;
+        String type;
+        String foodName;
+        boolean eaten;
+
+        public Reserve(int day, String type, String foodName) {
+            this.day = day;
+            this.type = type;
+            this.foodName = foodName;
+            eaten = false;
+            Student.reserveList.add(this);
+        }
+
+        public void setToEaten() {
+            eaten = true;
+
+        }
     }
 }
+

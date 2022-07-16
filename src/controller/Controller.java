@@ -6,9 +6,12 @@ import exceptions.ExitException;
 import java.util.Scanner;
 
 public abstract class Controller {
+
     protected static Scanner INPUT = new Scanner(System.in);
+
     public abstract Controller run();
-    protected String getCommand(String string){
+
+    protected String getCommand(String string) {
         if (string != null)
             System.out.println(string);
         System.out.print("> ");
@@ -16,7 +19,9 @@ public abstract class Controller {
         switch (response) {
             case "exit" -> throw new ExitException();
             case "back" -> throw new BackException();
-            default -> { return response; }
+            default -> {
+                return response;
+            }
         }
 
     }
