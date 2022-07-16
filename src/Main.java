@@ -1,16 +1,16 @@
+import com.google.gson.Gson;
 import controller.Controller;
 import controller.LoginController;
-import controller.Time;
-import model.self.Self;
+import model.DataBase;
 import model.user.Admin;
 
 public class Main {
 
     public static void main(String[] args) {
-        Admin admin = new Admin("admin","admin","admin");
-        Controller menu = new LoginController();
-        while (menu != null){
-            menu =  menu.run();
+        Admin admin = new Admin("admin", "admin", "admin");
+        Controller controller = new LoginController();
+        while (controller != null) {
+            controller = controller.run();
         }
     }
 }

@@ -26,7 +26,7 @@ public class AdminController extends UserController {
     public Controller run() {
         Controller controller = this;
         try {
-            String input = getCommand("command");
+            String input = getCommand("admin command");
             AdminCommand adminCommand = AdminCommand.findCommand(input);
             Matcher matcher = AdminCommand.getMatcher(input, adminCommand);
             if (matcher.find())

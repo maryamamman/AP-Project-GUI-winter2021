@@ -6,6 +6,7 @@ import controller.UserController;
 import exceptions.BackException;
 import exceptions.ExitException;
 import exceptions.IllegalCommandException;
+import model.DataBase;
 import model.self.FoodHandler;
 import model.self.Self;
 import model.self.Reserve;
@@ -24,7 +25,7 @@ public class StudentController extends UserController {
     public Controller run() {
         Controller controller = this;
         try {
-            String input = getCommand(null);
+            String input = getCommand("student command");
             StudentCommand studentCommand = StudentCommand.findCommand(input);
             Matcher matcher = StudentCommand.getMatcher(input, studentCommand);
             if (matcher.find())
@@ -32,7 +33,7 @@ public class StudentController extends UserController {
                     case RESERVE -> reserve(Integer.parseInt(matcher.group(1)), matcher.group(2), matcher.group(3), matcher.group(4));
                     case SHOW_FOOD_MENU -> showFoodMenu();
                     case CREDIT_ENHANCEMENT -> creditEnhancement(Integer.parseInt(matcher.group(1)));
-                    case TRANSFER -> transfer(Integer.parseInt(matcher.group(1)), matcher.group(2), matcher.group(3), Integer.parseInt(matcher.group(4)));
+                    case TRANSFER -> transfer(matcher.group(2), Integer.parseInt(matcher.group(2)), matcher.group(3), matcher.group(4), Integer.parseInt(matcher.group(5)), Integer.parseInt(matcher.group(6)));
                     case RETAKE -> retake(Integer.parseInt(matcher.group(1)), matcher.group(2));
                 }
 
@@ -55,11 +56,24 @@ public class StudentController extends UserController {
     private void retake(int day, String type) {
     }
 
-    private void transfer(int day, String type, String selfName,int id) {
+    private void transfer(String foodName, int day, String type, String selfName, int fromId, int toId) {
+        if (!student.hasFood(day, type))
+            throw new IllegalCommandException("This food is not reserved!");
+        if (!FoodHandler.isAvailable(foodName, day, type))
+            throw new IllegalCommandException("This food isn't available in the chosen time.");
         switch (type) {
-            case "breakfast" -> Self.selves.get(selfName).breakfastStudents.get(day).put(id,)
-            case "lunch" ->
-            case "dinner" ->
+            case "breakfast" -> {
+                Self.selves.get(selfName).breakfastStudents.get(day).remove(fromId);
+                Self.selves.get(selfName).breakfastStudents.get(day).put(toId, foodName);
+            }
+            case "lunch" -> {
+                Self.selves.get(selfName).lunchStudents.get(day).remove(fromId);
+                Self.selves.get(selfName).lunchStudents.get(day).put(toId, foodName);
+            }
+            case "dinner" -> {
+                Self.selves.get(selfName).dinnerStudents.get(day).remove(fromId);
+                Self.selves.get(selfName).dinnerStudents.get(day).put(toId, foodName);
+            }
         }
     }
 
@@ -85,10 +99,9 @@ public class StudentController extends UserController {
             case "dinner" -> price = FoodHandler.dinnerPrice.get(foodName);
         }
         if (student.wallet >= price) {
-            Reserve reserve = new Reserve(day,type,foodName, price);
+            Reserve reserve = new Reserve(day, type, foodName, price);
             student.reserve(reserve);
-        }
-        else throw new IllegalCommandException(
+        } else throw new IllegalCommandException(
                 "You don't have enough money in your account.");
         Self.selves.get(selfName).reserveFood(day, type, foodName, student.id);
     }

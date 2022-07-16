@@ -7,6 +7,7 @@ import controller.UserController;
 import exceptions.BackException;
 import exceptions.ExitException;
 import exceptions.IllegalCommandException;
+import model.DataBase;
 import model.self.Self;
 import model.user.Distributor;
 
@@ -23,13 +24,14 @@ public class DistributorController extends UserController {
     public Controller run() {
         Controller controller = this;
         try {
-            String input = getCommand(null);
+            String input = getCommand("distributor command");
             DistributorCommand distributorCommand = DistributorCommand.findCommand(input);
             Matcher matcher = DistributorCommand.getMatcher(input, distributorCommand);
             if (matcher.find())
                 if (distributorCommand == DistributorCommand.CHECK_DEMAND) {
                     checkDemand(Integer.parseInt(matcher.group(1)));
                 }
+
 
             return null;
         } catch (
@@ -49,7 +51,7 @@ public class DistributorController extends UserController {
     }
 
     private void checkDemand(int id) {
-        switch (Time.currentMeal){
+        switch (Time.currentMeal()){
             case "breakfast" -> System.out.println(Self.selves.get(distributor.selfName).breakfastStudents.get(Time.day).get(id));
             case "lunch" -> System.out.println(Self.selves.get(distributor.selfName).lunchStudents.get(Time.day).get(id));
             case "dinner" -> System.out.println(Self.selves.get(distributor.selfName).dinnerStudents.get(Time.day).get(id));
