@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DataBase {
+public class Database {
 
     final private ArrayList<Student> students;
     final private ArrayList<Admin> admins;
@@ -26,7 +26,7 @@ public class DataBase {
     final private HashMap<Integer, String[]> lunchTable;
     final private HashMap<Integer, String[]> dinnerTable;
 
-    public DataBase(){
+    public Database() {
         students = new ArrayList<>();
         admins = new ArrayList<>();
         distributors = new ArrayList<>();
@@ -37,6 +37,8 @@ public class DataBase {
         breakfastTable = new HashMap<>();
         lunchTable = new HashMap<>();
         dinnerTable = new HashMap<>();
+        Admin firstAdmin = new Admin("admin", "admin", "admin");
+        admins.add(firstAdmin);
     }
 
     public void parse() {
@@ -52,24 +54,25 @@ public class DataBase {
         FoodHandler.dinnerTable = this.dinnerTable;
     }
 
-    public static void write(String fileName, DataBase dataBase) {
+    public static void write(String fileName, Database database) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter(fileName)) {
-            gson.toJson(dataBase, writer);
+            gson.toJson(database, writer);
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static DataBase read(String fileName) {
+    public static Database read(String fileName) {
         Gson gson = new Gson();
-
         try (FileReader fileReader = new FileReader(fileName)) {
-            return gson.fromJson(fileReader, DataBase.class);
-        } catch (IOException e) {
+            Database database = gson.fromJson(fileReader, Database.class);
+            database.parse();
+            return database;
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return new DataBase();
+        return new Database();
     }
 }

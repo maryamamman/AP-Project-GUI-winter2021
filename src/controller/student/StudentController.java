@@ -6,7 +6,6 @@ import controller.UserController;
 import exceptions.BackException;
 import exceptions.ExitException;
 import exceptions.IllegalCommandException;
-import model.DataBase;
 import model.self.FoodHandler;
 import model.self.Self;
 import model.self.Reserve;

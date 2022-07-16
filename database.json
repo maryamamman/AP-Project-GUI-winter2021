@@ -1,0 +1,27 @@
+{
+  "students": [
+    {
+      "inDorm": true,
+      "id": 1,
+      "wallet": 0,
+      "username": "aliemaryam",
+      "password": "alie_maryam",
+      "name": "alie_maryam"
+    }
+  ],
+  "admins": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "name": "admin"
+    }
+  ],
+  "distributors": [],
+  "selves": {},
+  "breakfastPrice": {},
+  "lunchPrice": {},
+  "dinnerPrice": {},
+  "breakfastTable": {},
+  "lunchTable": {},
+  "dinnerTable": {}
+}
