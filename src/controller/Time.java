@@ -1,18 +1,23 @@
 package controller;
 
-public abstract class Time {
+public class Time {
     public static int day = 0;
-    public static String currentMeal;
+    public static boolean holiday = true;
     public static int mealNum = 0;
-    public final String[] meals = {"breakfast", "lunch", "dinner"};
+    public static final String[] MEALS = {"breakfast", "lunch", "dinner"};
 
-    public void nextMeal() {
-        if (mealNum < 3) mealNum += 1;
-        else {
-            mealNum = 0;
-            day += 1;
-        }
-        currentMeal = meals[mealNum];
+    public static void nextMeal() {
+        if (mealNum == 2)
+            nextDay();
+        mealNum = (mealNum + 1) % 3;
     }
 
+    private static void nextDay() {
+        day += 1;
+        holiday = day % 7 == 0;
+    }
+
+    public static String currentMeal() {
+        return MEALS[mealNum];
+    }
 }

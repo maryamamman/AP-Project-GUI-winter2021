@@ -35,4 +35,13 @@ public class FoodHandler {
         }
 
     }
+    public static boolean isAvailable(String foodName, int day, String type) {
+        boolean isAvailable = false;
+        switch (type) {
+            case "breakfast" -> isAvailable = Arrays.asList(breakfastTable.get(day)).contains(foodName);
+            case "lunch" -> isAvailable = Arrays.asList(lunchTable.get(day)).contains(foodName);
+            case "dinner" -> isAvailable = Arrays.asList(dinnerTable.get(day)).contains(foodName);
+        }
+        return isAvailable;
+    }
 }

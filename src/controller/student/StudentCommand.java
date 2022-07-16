@@ -12,7 +12,7 @@ public enum StudentCommand {
     RETAKE("retake (\\d+) (dinner|breakfast|lunch)"),
     TRANSFER("transfer (\\d+)"),
     CREDIT_ENHANCEMENT("credit enhancement (\\d+)"),
-    RESERVE("reserve (\\d+) (dinner|breakfast|lunch) (\\d) ([a-zA-Z0-9_]+) (\\d+)");
+    RESERVE("reserve (\\d+) (dinner|breakfast|lunch) (\\d) ([a-zA-Z0-9_]+)");
 
     private final Pattern pattern;
     private final String regex;

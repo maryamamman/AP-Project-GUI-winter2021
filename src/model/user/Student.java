@@ -1,17 +1,21 @@
 package model.user;
 
 
+import model.self.Reserve;
+
 import java.util.ArrayList;
 
-public class Student extends User{
+public class Student extends User {
     public static ArrayList<Student> students;
     public boolean inDorm;
-    public static ArrayList<Reserve> reserveList;
+    public ArrayList<Reserve> reserveList;
     public int id;
     public int wallet;
+
     static {
         students = new ArrayList<>();
     }
+
     public Student(String username, String password, String name, int id, boolean inDorm) {
         super(username, password, name);
         this.inDorm = inDorm;
@@ -19,29 +23,28 @@ public class Student extends User{
         wallet = 0;
         students.add(this);
     }
+    public static Student getStudent(int id) {
+        for (Student student : students) {
+            if (student.id == id)
+                return student;
+        }
+        return null;
+    }
     public void deposit(int amount) {
         wallet += amount;
     }
 
-    class Reserve {
-
-        int day;
-        String type;
-        String foodName;
-        boolean eaten;
-
-        public Reserve(int day, String type, String foodName) {
-            this.day = day;
-            this.type = type;
-            this.foodName = foodName;
-            eaten = false;
-            Student.reserveList.add(this);
+    public void reserve(Reserve reserve) {
+        reserveList.add(reserve);
+        wallet -= reserve.price;
+    }
+    public boolean hasFood(int day, String type) {
+        for (Reserve reserve :
+                reserveList) {
+            if (reserve.day == day && reserve.type.equals(type))
+                return false;
         }
-
-        public void setToEaten() {
-            eaten = true;
-
-        }
+        return true;
     }
 }
 

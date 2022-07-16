@@ -2,6 +2,7 @@ package controller.admin;
 
 import controller.Controller;
 import controller.LoginController;
+import controller.Time;
 import controller.UserController;
 import exceptions.BackException;
 import exceptions.ExitException;
@@ -56,6 +57,7 @@ public class AdminController extends UserController {
     }
 
     private void nextMeal() {
+        Time.nextMeal();
     }
 
     private void setFood(String foodName1, String foodName2, int day, String type) {
