@@ -13,7 +13,6 @@ public class LoginController extends Controller{
     @Override
     public Controller run() {
         Controller controller = this;
-        System.out.println("LOGIN MENU");
         String username = getCommand("username: ");
         String password = getCommand("password: ");
         User matchedUser = User.search(username, password);
