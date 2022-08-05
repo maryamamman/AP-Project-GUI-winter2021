@@ -6,67 +6,64 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="adminMenuScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.admin.AdminMainController">
    <children>
-      <Label prefHeight="112.0" prefWidth="700.0" style="-fx-background-color: #374356;" />
-      <Text fill="WHITE" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose one!" textAlignment="CENTER" wrappingWidth="700.0000000000001">
+      <Label alignment="CENTER" prefHeight="130.0" prefWidth="700.0" style="-fx-background-color: #374356;" text="Admin Menu" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="40.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="347.0" layoutX="19.0" layoutY="133.0" stroke="#374356" strokeType="INSIDE" strokeWidth="2.0" width="663.0" />
-      <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" layoutX="25.0" layoutY="95.0" prefHeight="347.0" prefWidth="652.0" vgap="20.0">
+            <Font name="System Bold" size="45.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="330.0" layoutX="20.0" layoutY="150.0" stroke="#374356" strokeType="INSIDE" strokeWidth="2.0" width="660.0" />
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" layoutX="46.0" layoutY="180.0" prefHeight="211.0" prefWidth="606.0" vgap="20.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Add Student" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Add&#10;User" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Add Admin" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Add&#10;Food" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Add Distributor" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Reserves" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Add Food" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Set&#10;Menu" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Reserves" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Next&#10;Meal" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Report" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Admins" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Button" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Distributors" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: #374356;" text="Button" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="Students" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
          </children>
       </FlowPane>
-      <Button layoutX="231.0" layoutY="399.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="EXIT" textFill="RED">
+      <Button fx:id="exit" layoutX="240.0" layoutY="410.0" mnemonicParsing="false" onAction="#exiting" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #374356;" text="EXIT" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="372.0" layoutY="399.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #374356;" text="BACK" textFill="RED">
+      <Button layoutX="370.0" layoutY="410.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #374356;" text="BACK" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

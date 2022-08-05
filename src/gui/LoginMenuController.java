@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.user.Admin;
@@ -20,6 +21,9 @@ import java.util.Objects;
 public class LoginMenuController {
     @FXML
     private Button logIn;
+
+    @FXML
+    private Label loginError;
 
     @FXML
     private TextField getUsername;
@@ -36,7 +40,9 @@ public class LoginMenuController {
         String password = getPassword.getText();
         User matchedUser = User.search(username, password);
         if (matchedUser == null) {
-            System.out.println(username +"\n"+ password);
+            loginError.setText("OOPS! Wrong username or password!");
+            getUsername.setText(null);
+            getPassword.setText(null);
         } else {
             if (matchedUser instanceof Student) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("student/StudentMain.fxml")));
@@ -45,10 +51,7 @@ public class LoginMenuController {
             } else if (matchedUser instanceof Admin) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("admin/AdminMain.fxml")));
             }
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            SceneController.switchToScene(event,root,stage,scene);
 
         }
     }

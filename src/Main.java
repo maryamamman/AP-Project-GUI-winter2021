@@ -1,4 +1,6 @@
+import gui.Alerts;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,7 +12,7 @@ import java.util.Objects;
 public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
-        Database database = Database.read("database.json");
+        //Database database = Database.read("database.json");
         launch();
         /*Database database = Database.read("database.json");
         Controller controller = new LoginController();
@@ -27,5 +29,16 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
+        stage.setOnCloseRequest(windowEvent -> {
+            windowEvent.consume();
+            exiting(stage);
+        });
+
+        Database database = Database.read("database.json");
+
+    }
+
+    private void exiting(Stage stage) {
+        Alerts.exitAlert(stage);
     }
 }
