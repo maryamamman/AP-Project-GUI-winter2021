@@ -67,7 +67,7 @@ public class LoginController {
     }
 
     private boolean validateFields() {
-        return getUsername.getText() != null && getPassword.getText() != null;
+        return !Objects.equals(getUsername.getText(), "") && !Objects.equals(getPassword.getText(), "");
     }
 }
 
