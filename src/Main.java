@@ -1,6 +1,5 @@
-import gui.Alerts;
+import controllerAndView.Alerts;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +12,7 @@ public class Main extends Application {
 
     public static void main(String[] args) throws Exception {
         //Database database = Database.read("database.json");
+        Database.read("database.json");
         launch();
         /*Database database = Database.read("database.json");
         Controller controller = new LoginController();
@@ -24,7 +24,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gui/LoginMenu.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("controllerAndView/LoginMenu.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -34,7 +34,7 @@ public class Main extends Application {
             exiting(stage);
         });
 
-        Database database = Database.read("database.json");
+
 
     }
 

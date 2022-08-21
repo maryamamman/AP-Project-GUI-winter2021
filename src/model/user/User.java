@@ -1,5 +1,7 @@
 package model.user;
 
+import model.Database;
+
 public abstract class User {
     public String username;
     public String password;
