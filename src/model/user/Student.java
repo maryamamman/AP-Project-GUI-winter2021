@@ -44,6 +44,7 @@ public class Student extends User {
     public void reserve(Reserve reserve) {
         reserveList.add(reserve);
         wallet -= reserve.price;
+        System.out.println(wallet);
         Database.write("database.json");
     }
 

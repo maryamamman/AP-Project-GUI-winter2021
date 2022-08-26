@@ -19,9 +19,6 @@ import java.util.Objects;
 
 public class LoginController {
     @FXML
-    private Button logIn;
-
-    @FXML
     private Label loginError;
 
     @FXML
@@ -29,9 +26,6 @@ public class LoginController {
 
     @FXML
     private TextField getPassword;
-
-    @FXML
-    private Button btn;
 
     private Parent root;
     private Stage stage;

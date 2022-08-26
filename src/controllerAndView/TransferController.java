@@ -58,7 +58,7 @@ public class TransferController implements Initializable {
             if (Objects.equals(foodChoiceBox.getValue(), "Day:" + reserve.day + " , Type:" + reserve.type + " , Food:" + reserve.foodName + " , Price:" + reserve.price + " , Self:" + reserve.selfName)) {
                 try {
                     int toId = Integer.parseInt(transferTo.getText());
-                    if (!Student.getStudent(toId).hasFood(reserve.day, reserve.type)) {
+                    if (!Student.getStudent(toId).hasFood(reserve.day, reserve.type) && Student.getStudent(toId).canReserve(reserve.type)) {
                         try {
                             numError.setText("");
                             student.transfer(reserve, toId);
@@ -67,7 +67,7 @@ public class TransferController implements Initializable {
                         } catch (NullPointerException e) {
                             Alerts.studentNotFoundAlert();
                         }
-                    }else numError.setText("This user have already reserved food!");
+                    }else numError.setText("This user is not allowed to reserve food at chosen time!");
                 } catch (NumberFormatException e) {
                     numError.setText("Numbers only for ID!");
                 }

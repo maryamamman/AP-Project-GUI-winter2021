@@ -35,7 +35,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Button fx:id="reserveButton" alignment="CENTER" contentDisplay="CENTER" layoutX="319.0" layoutY="427.0" mnemonicParsing="false" onAction="#reserveFood" style="-fx-background-color: #374356;" text="Reserve" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="addButton" alignment="CENTER" contentDisplay="CENTER" layoutX="319.0" layoutY="427.0" mnemonicParsing="false" onAction="#reserveFood" style="-fx-background-color: #374356;" text="Reserve" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -79,30 +79,5 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="waitListButton" alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="427.0" mnemonicParsing="false" onAction="#waitList" style="-fx-background-color: #374356;" text="Wait List" textAlignment="CENTER" textFill="WHITE" visible="false">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
-      <Label fx:id="price" layoutX="171.0" layoutY="413.0" prefHeight="27.0" prefWidth="128.0" text="Price: " textFill="#374356">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <AnchorPane fx:id="waitListScene" layoutX="27.0" layoutY="160.0" prefHeight="311.0" prefWidth="646.0" style="-fx-background-color: #374356;" visible="false">
-         <children>
-            <ChoiceBox fx:id="waitListFood" layoutX="184.0" layoutY="75.0" prefHeight="27.0" prefWidth="277.0" />
-            <Button layoutX="212.0" layoutY="194.0" mnemonicParsing="false" onAction="#closeWaitList" prefHeight="38.0" prefWidth="100.0" text="Back" textFill="#374356">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="334.0" layoutY="194.0" mnemonicParsing="false" onAction="#buy" prefHeight="38.0" prefWidth="100.0" text="Buy" textFill="#374356">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

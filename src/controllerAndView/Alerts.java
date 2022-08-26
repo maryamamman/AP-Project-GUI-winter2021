@@ -39,6 +39,22 @@ public abstract class Alerts {
         done.show();
     }
 
+    public static void giveFoodAlert() {
+        Alert done = new Alert(Alert.AlertType.INFORMATION);
+        done.setTitle("Food Giving");
+        done.setHeaderText("DONE!");
+        done.setContentText("Food is given:)");
+        done.show();
+    }
+
+    public static void sellFoodAlert() {
+        Alert done = new Alert(Alert.AlertType.INFORMATION);
+        done.setTitle("Food Giving");
+        done.setHeaderText("DONE!");
+        done.setContentText("Food is given:)");
+        done.show();
+    }
+
     public static void reserveAlert() {
         Alert done = new Alert(Alert.AlertType.INFORMATION);
         done.setTitle("Reserving");
@@ -107,7 +123,7 @@ public abstract class Alerts {
         Alert noTime = new Alert(Alert.AlertType.WARNING);
         noTime.setTitle("Reserving");
         noTime.setHeaderText("OOPS!");
-        noTime.setContentText("You can only reserve food for 2 or more days later");
+        noTime.setContentText("You can only reserve food for 2 or more days later\nSo you can buy food from the WAIT LIST");
         noTime.showAndWait();
     }
 
@@ -125,6 +141,30 @@ public abstract class Alerts {
         done.setHeaderText("DONE!");
         done.setContentText("Your reservation was added to wait list\nYou'll get your money if someone buy it:)");
         done.show();
+    }
+
+    public static void numberDepositAlert() {
+        Alert number = new Alert(Alert.AlertType.WARNING);
+        number.setTitle("Deposit");
+        number.setHeaderText("OOPS!");
+        number.setContentText("Numbers Only for deposit");
+        number.showAndWait();
+    }
+
+    public static void depositAlert() {
+        Alert done = new Alert(Alert.AlertType.INFORMATION);
+        done.setTitle("Deposit");
+        done.setHeaderText("DONE!");
+        done.setContentText("Your credit is increased:)");
+        done.show();
+    }
+
+    public static void invalidAmountAlert() {
+        Alert number = new Alert(Alert.AlertType.WARNING);
+        number.setTitle("Deposit");
+        number.setHeaderText("OOPS!");
+        number.setContentText("The value must be greater than zero!");
+        number.showAndWait();
     }
 }
 

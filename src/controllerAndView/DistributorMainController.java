@@ -55,6 +55,9 @@ public class DistributorMainController implements Initializable {
                 id = Integer.parseInt(idGetter.getText());
                 if (distributor.showDemand(id) != null) {
                     distributor.giveFood(id);
+                    Alerts.giveFoodAlert();
+                    idGetter.setText(null);
+                    information.setText("");
                 } else information.setText("No Demand!");
             } catch (NumberFormatException e) {
                 information.setText("Number only for ID!");
@@ -97,6 +100,7 @@ public class DistributorMainController implements Initializable {
                     self.selectFromWaitList(reserve);
                     Student.getStudent(reserve.ownerId).selectedFromWaitList(reserve);
                     waitListFood.setValue(null);
+                    Alerts.sellFoodAlert();
                     waitListScene.setVisible(false);
                     break;
                 }

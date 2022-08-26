@@ -64,9 +64,24 @@ public class StudentMainController implements Initializable {
     }
 
     public void increaseCredit2(ActionEvent event) {
-        LoginController.student.deposit(Integer.parseInt(deposit.getText()));
+        if (validateFields()) {
+            try {
+                int amount = Integer.parseInt(deposit.getText());
+                if (amount > 0){
+                    LoginController.student.deposit(amount);
+                    depositPane.setVisible(false);
+                    credit.setText("Credit: " + LoginController.student.wallet);
+                    Alerts.depositAlert();
+                }else Alerts.invalidAmountAlert();
+            }catch (NumberFormatException e){
+                Alerts.numberDepositAlert();
+            }
+            deposit.setText(null);
+        }else Alerts.emptyFieldAlert();
+    }
+
+    public void backDeposit(ActionEvent event){
         depositPane.setVisible(false);
-        credit.setText("Credit: " + LoginController.student.wallet);
     }
 
 
@@ -77,6 +92,10 @@ public class StudentMainController implements Initializable {
 
     public void exit(ActionEvent event) {
         Alerts.exitAlert((Stage) studentMenuScene.getScene().getWindow());
+    }
+
+    private boolean validateFields() {
+        return !Objects.equals(deposit.getText(), "");
     }
 
 }
